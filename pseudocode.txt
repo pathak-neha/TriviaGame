@@ -1,0 +1,88 @@
+_________________________________________________________________________________________________________________
+
+# CONCEPT
+--- ON LOAD:
+--------- start screen:
+----------------- rules
+----------------- start
+
+--> ON CLICK (start button):
+--------- timer
+----------------- starts at 30s, counts down
+----------------> on 0, autoload answer page
+--------- question
+----------------- options
+----------------> submit button + click = load answer page
+
+--- ANSWER PAGE
+--------- different for wins and losses
+--------> autoload next question page using timer
+
+_________________________________________________________________________________________________________________
+
+# VARIABLES
+--- TIMER
+--------- timeLeft
+--------- intervalId
+
+--- QUESTION GROUP ***** (array/object?)
+--------- individual questions: objects
+----------------- property #1: question text
+----------------- property #2: option ***** (array/object?)
+----------------- property #3: answer ***** (varies depending on whether options are a list or object properties)
+----------------- property #4: SOMETHING VARIABLE FOR ANSWER PAGES? ***** 
+
+--- Time's up page? ***** 
+
+--- GAME STATS
+--------- correct
+--------- wrong
+--------- unanswered
+--------- progress
+
+# FUNCTIONS
+--- ON CLICK
+--------- start
+----------------- unhide question page
+----------------- load question page
+
+--------- submit
+----------------- progress++
+----------------- check if answer = user selection
+------------------------- correct++	ELSE
+------------------------- incorrect++
+----------------- load answer page
+
+--- OTHER
+--------- load question page
+----------------- timeLeft = 30
+----------------- update .time-left='timeLeft'
+----------------- update .text = questionsGroup[progress+1].attr('question')
+----------------- update .option-1 = questionsGroup[progress+1].attr(1)
+----------------- update .option-2 = 'questionsGroup[progress+1].attr(2)
+----------------- update .option-3 = 'questionsGroup[progress+1].attr(3)
+----------------- update .option-4 = 'questionsGroup[progress+1].attr(4)
+----------------- @ timeLeft = 0
+------------------------- move to answer page
+------------------------- timeLeft = 5 *****
+------------------------- update .time-left='timeLeft'
+------------------------- update .stats-timer='Next question in... '
+------------------------- unanswered++
+------------------------- progress++
+
+--------- load answer page
+----------------- 5s timer *****
+------------------------- @ timeLeft = 0
+------------------------- move to question page
+------------------------- timeLeft = 30
+------------------------- update .time-left='timeLeft'
+------------------------- update .stats-timer='TIME LEFT: '
+
+--------- load summary page
+----------------- correct
+----------------- incorrect
+----------------- unanswered
+
+
+
+

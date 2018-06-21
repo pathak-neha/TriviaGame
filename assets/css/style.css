@@ -1,0 +1,115 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #000033;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url("../images/castle-2.png");
+    background-position: center top;
+}
+
+h1 {
+    padding-top: 1rem;
+    text-shadow: 2px 2px 4px #000000;
+    line-height: 2.25rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white; 
+}
+    h1 .the {
+        font-size: 1.5rem;
+    }
+    h1 .hp {
+      display: block;
+      font-family: 'Allura', cursive;
+      color: #cccc99;
+      font-size: 5rem;
+      position: relative;
+      z-index: 99;
+    }
+    h1 .quiz {
+      font-size: 2.5rem; 
+    }
+
+.hidden {
+    display: none;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    padding-bottom: 0.5rem;
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #000033;
+}
+
+.box {
+    display: block;
+    text-align: left;
+}
+
+#intro-screen {
+    display: flex;
+    flex-direction:column;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 100%;
+    max-height: 600px; 
+}
+
+#game-over {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 100%;
+    max-height: 600px; 
+}
+
+.btn:hover {
+    background-color: #000033;
+    color: #cccc99;
+}
+
+.btn:active {
+    background-color: #000000;
+    color: white;
+}
+
+#quiz-stats {
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+    border-bottom: 1px solid #000033;
+}
+    #quiz-stats #stats-timer {
+        padding-left: 0.5rem;
+        float: left;
+    }
+
+    #quiz-stats #stats-progress {
+        padding-right: 0.5rem;
+        float: right;
+    }
+
+#quiz-question {
+    padding-left: 2rem;
+}
+
+#quiz-answer {
+    padding-left: 2rem;
+}
+
+.ans-img {
+    max-width: 400px;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}

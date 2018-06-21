@@ -1,0 +1,75 @@
+-- 1. Who destroyed the last remaining Horcrux?
+--------- a) Ginny Weasley
+--------- b) Severus Snape
+--------x c) Neville Longbottom
+--------- d) Victor Krum
+
+-- 2. What is the name of Dumbledore's phoenix?
+--------- a) Firenze
+--------x b) Fawkes
+--------- c) Fluffy
+--------- d) Hermes
+
+-- 3. Who is Ginny's first boyfriend?
+--------x a) Michael Corner 
+--------- b) Zacharias Smith
+--------- c) Harry Potter
+--------- d) Dean Thomas
+
+-- 4. What creatures does Charlie Weasley work with in Romania?
+--------- a) Dementors
+--------- b) Hippogriffs
+--------- c) Boggarts
+--------x d) Dragons
+
+-- 5. Which of the following posts has Albus Dumbledore never held?
+--------- a) Chief Warlock of the Wizengamot
+--------- b) Supreme Mugwump
+--------- c) Professor of Transfiguration at the Hogwarts School of Witchcraft and Wizardry
+--------x d) Head of the Department of International Magical Cooperation 
+
+-- 6. What is Dumbledore's full name?
+--------- a) Albus Wulfric Percival Brian Dumbledore
+--------x b) Albus Percival Wulfric Brian Dumbledore
+--------- c) Albus Wulfric Brian Percival Dumbledore
+--------- d) Albus Percival Brian Wulfric Dumbledore
+
+-- 7. What date is Ron's birthday?
+--------- a) 24th November
+--------x b) 1st March 
+--------- c) 5th April
+--------- d) 2nd February
+
+
+OBJ question1
+
+
+-- 8. How many points is the Golden Snitch worth 
+--------- a) 50
+--------- b) 500
+--------x c) 150
+--------- d) 100
+
+-- 9. What do Ron and Hermione use to destroy Helga Hufflepuff's cup?
+--------x a) A Basilisk Fang
+--------- b) The Sword of Gryffindor
+--------- c) Fiendfyre
+--------- d) The Killing Curse
+
+-- 10. What body part does Ron leave behind when he does his apparition test?
+--------- a) His nose
+--------x b) Half an eyebrow
+--------- c) His right foot
+--------- d) His left hand
+
+-- 11. When Harry attended his hearing at the Ministry of Magic, what colour paper aeroplanes flew into the life at Level Four?
+--------- a) Mint green
+--------x b) Pale violet
+--------- c) Yellow
+--------- d) Pale blue
+
+-- 12. In Harry Potter and the Prisoner of Azkaban, where does the Knight Bus drop Harry off?
+--------- a) King's Cross Station
+--------- b) Privet Drive
+--------- c) Hogwarts
+--------x d) The Leaky Cauldron
