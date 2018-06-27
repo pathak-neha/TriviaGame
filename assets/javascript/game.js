@@ -1,8 +1,10 @@
 $(document).ready(function () {
     // ---------------------------------------- VARIABLES ------------------------------------
     // 1. Related to the timer (see section within 'functions')
-    var timeLeft;
-    var intervalID;
+    var fiveSecond;
+    var fiveSecondInterval;
+    var thirtySecond;
+    var thirtySecondInterval;
 
     // 2. Questions as an array of objects
     var questionsGroup = [
@@ -28,7 +30,7 @@ $(document).ready(function () {
                 4: 'Hermes',
             },
             'answer': 2,
-            'blurb': "<strong>Fawkes, </strong> is the name of Dumbledore's pet phoenix.",
+            'blurb': "The name of Dumbledore's pet phoenix was <strong>Fawkes</strong>.",
             'imageSrc': '<img class="ans-img" src="./assets/images/two.gif" alt="Answer two image" />'
         },
 
@@ -80,7 +82,7 @@ $(document).ready(function () {
                 4: 'Albus Percival Brian Wulfric Dumbledore',
             },
             'answer': 2,
-            'blurb': "<strong>Albus Percival Wulfric Brian Dumbledore</strong><br>You should know this by now.",
+            'blurb': "You should know this by now.",
             'imageSrc': '<img class="ans-img" src="./assets/images/six.gif" alt="Answer six image" />'
         },
 
@@ -176,14 +178,7 @@ $(document).ready(function () {
 
     // ---------------------------------------- FUNCTIONS ------------------------------------
     // 1. Timer
-    function countdown() {
-        if (timeLeft == 0) {
-            clearInterval(intervalID);
-        } else {
-            timeLeft--;
-            $('.time-left').text(timeLeft);
-        };
-    };
+    // defined within pages 
 
     // 2. To check if the answer is correct
     function check(selection) {
@@ -215,9 +210,22 @@ $(document).ready(function () {
     // 4. Load Page Info
     function loadQuestion() {
         // timer
-        clearInterval(intervalID);
-        timeLeft = 30;
-        intervalID = setInterval(countdown, 1000);
+        if (typeof fiveSCountdown !== 'undefined') {
+            clearInterval(fiveSecondInterval);
+        };
+        thirtySecond = 30;
+        $('.time-left').text(thirtySecond);
+        function thirtySCountdown() {
+            if (thirtySecond===0) {
+                clearInterval(thirtySecondInterval);
+                showAnswerPage();
+                loadTimeUp();
+            } else {
+                thirtySecond--;
+                $('.time-left').text(thirtySecond);
+            };
+        };
+        thirtySecondInterval = setInterval(thirtySCountdown, 1000);
         $('.timer-text').text('TIME LEFT:');
 
         // question info
@@ -230,20 +238,25 @@ $(document).ready(function () {
         // update variable that contains answer
         answer = parseInt(questionsGroup[progress - 1].answer);
         console.log('answer: ' + answer);
-
-        // when time runs out...
-        setTimeout(function () {
-            showAnswerPage(3);
-            loadTimeUp();
-        }, 30000);
     };
 
     function loadCorrectAnswer() {
         // timer
-        clearInterval(intervalID);
-        timeLeft = 5;
-        $('.time-left').text(timeLeft);
-        intervalID = setInterval(countdown, 1000);
+        fiveSecond = 5;
+        $('.time-left').text(fiveSecond);
+        function fiveSCountdown() {
+            if (fiveSecond == 0) {
+                clearInterval(fiveSecondInterval);
+                progress++;
+                $('.prog').text(progress);
+                showQuestionPage();
+                loadQuestion();
+            } else {
+                fiveSecond--;
+                $('.time-left').text(fiveSecond);
+            };
+        };
+        fiveSecondInterval = setInterval(fiveSCountdown, 1000);
         $('.timer-text').text('Next question in... ');
 
         // answer info
@@ -251,106 +264,85 @@ $(document).ready(function () {
         $('#answer-blurb').html(questionsGroup[progress - 1]['blurb']);
         $('#answer-image').html(questionsGroup[progress - 1]['imageSrc']);
 
-        // when time runs out....
-        setTimeout(function () {
-            correct++;
-            // Executes when the game is over
-            if (progress == 12) {
-                showGameOver();
-                loadGameOver();
-            } else {
+    };
+
+
+    function loadIncorrectAnswer() {
+        // timer
+        fiveSecond = 5;
+        $('.time-left').text(fiveSecond);
+        function fiveSCountdown() {
+            if (fiveSecond == 0) {
+                clearInterval(fiveSecondInterval);
                 progress++;
                 $('.prog').text(progress);
                 showQuestionPage();
-                loadQuestion()}
-            },5000)
+                loadQuestion();
+            } else {
+                fiveSecond--;
+                $('.time-left').text(fiveSecond);
+            };
         };
-    
-});
+        fiveSecondInterval = setInterval(fiveSCountdown, 1000);
+        $('.timer-text').text('Next question in... ');
 
-function loadIncorrectAnswer() {
-    // timer
-    clearInterval(intervalID);
-    timeLeft = 5;
-    $('.time-left').text(timeLeft);
-    intervalID = setInterval(countdown, 1000);
-    $('.timer-text').text('Next question in... ');
-
-    // answer info
-    $('#answer-header').html('Your selection was... <strong>incorrect</strong>!');
-    $('#answer-blurb').html(questionsGroup[progress - 1]['blurb']);
-    $('#answer-image').html(questionsGroup[progress - 1]['imageSrc']);
-
-    // when time runs out....
-    setTimeout(function () {
-        incorrect++;
-        // Executes when the game is over
-        if (progress == 12) {
-            showGameOver();
-            loadGameOver();
-        } else {
-            progress++;
-        $('.prog').text(progress);
-        showQuestionPage();
-        loadQuestion();
-        }
-    }, 5000);
-};
-
-function loadTimeUp() {
-    // timer
-    clearInterval(intervalID);
-    timeLeft = 5;
-    $('.time-left').text(timeLeft);
-    intervalID = setInterval(countdown, 1000);
-    $('.timer-text').text('Next question in... ');
-
-    // answer info
-    $('#answer-header').html('You ran out of time!');
-    $('#answer-blurb').html(questionsGroup[progress - 1]['blurb']);
-    $('#answer-image').html(questionsGroup[progress - 1]['imageSrc']);
-
-    // when time runs out....
-    setTimeout(function () {
-        // Executes when the game is over
-        if (progress == 12) {
-            showGameOver();
-            loadGameOver();
-        } else {
-            progress++;
-        $('.prog').text(progress);
-        showQuestionPage();
-        loadQuestion();
-        }
-    }, 5000);
-};
-
-function loadGameOver() {
-    clearTimeout(intervalID);
-    $('#correct').text(correct);
-    $('#incorrect').text(incorrect);
-    $('#unanswered').text(unanswered);
-};
-
-// ---------------------------------------- EXECUTION ------------------------------------
-$('#start-btn').on('click', function () {
-    showQuestionPage();
-    loadQuestion();
-});
-
-$('#submit-btn').on('click', function () {
-    var selection = parseInt($('input:radio[name=selection]:checked').val());
-    console.log('user: ' + selection);
-    clearTimeout(intervalID);
-    if (!selection) {
-        alert('Please make a selection!');
-    } else {
-        if (!check(selection)) {
-            showAnswerPage();
-            loadIncorrectAnswer(2);
-        } else {
-            showAnswerPage();
-            loadCorrectAnswer(1);
-        };
+        // answer info
+        $('#answer-header').html('Your selection was... <strong>incorrect</strong>!');
+        $('#answer-blurb').html(questionsGroup[progress - 1]['blurb']);
+        $('#answer-image').html(questionsGroup[progress - 1]['imageSrc']);
     };
+
+    function loadTimeUp() {
+        fiveSecond = 5;
+        $('.time-left').text(fiveSecond);
+        function fiveSCountdown() {
+            if (fiveSecond == 0) {
+                clearInterval(fiveSecondInterval);
+                progress++;
+                $('.prog').text(progress);
+                showQuestionPage();
+                loadQuestion();
+            } else {
+                fiveSecond--;
+                $('.time-left').text(fiveSecond);
+            };
+        };
+        fiveSecondInterval = setInterval(fiveSCountdown, 1000);
+        $('.timer-text').text('Next question in... ');
+
+        // answer info
+        $('#answer-header').html('You ran out of time!');
+        $('#answer-blurb').html(questionsGroup[progress - 1]['blurb']);
+        $('#answer-image').html(questionsGroup[progress - 1]['imageSrc']);
+    };
+
+    function loadGameOver() {
+        clearInterval(fiveSecondInterval);
+        $('#correct').text(correct);
+        $('#incorrect').text(incorrect);
+        $('#unanswered').text(unanswered);
+    };
+
+    // ---------------------------------------- EXECUTION ------------------------------------
+    $('#start-btn').on('click', function () {
+        showQuestionPage();
+        loadQuestion();
+    });
+
+    $('#submit-btn').on('click', function () {
+        var selection = parseInt($('input:radio[name=selection]:checked').val());
+        console.log('user: ' + selection);
+        clearInterval(thirtySecondInterval);
+        if (!selection) {
+            alert('Please make a selection!');
+        } else {
+            if (!check(selection)) {
+                showAnswerPage();
+                loadIncorrectAnswer(2);
+            } else {
+                showAnswerPage();
+                loadCorrectAnswer(1);
+            };
+        };
+    });
 });
