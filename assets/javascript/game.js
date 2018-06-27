@@ -210,13 +210,13 @@ $(document).ready(function () {
     // 4. Load Page Info
     function loadQuestion() {
         // timer
-        if (typeof fiveSCountdown !== 'undefined') {
+        if (typeof fiveSecondInterval !== 'undefined') {
             clearInterval(fiveSecondInterval);
         };
         thirtySecond = 30;
         $('.time-left').text(thirtySecond);
         function thirtySCountdown() {
-            if (thirtySecond===0) {
+            if (thirtySecond === 0) {
                 clearInterval(thirtySecondInterval);
                 showAnswerPage();
                 loadTimeUp();
@@ -242,15 +242,23 @@ $(document).ready(function () {
 
     function loadCorrectAnswer() {
         // timer
+        if (typeof thirtySecondInterval !== 'undefined') {
+            clearInterval(thirtySecondInterval);
+        };
         fiveSecond = 5;
         $('.time-left').text(fiveSecond);
         function fiveSCountdown() {
             if (fiveSecond == 0) {
                 clearInterval(fiveSecondInterval);
-                progress++;
-                $('.prog').text(progress);
-                showQuestionPage();
-                loadQuestion();
+                if (progress == 12) {
+                    showGameOver();
+                    loadGameOver();
+                } else {
+                    progress++;
+                    $('.prog').text(progress);
+                    showQuestionPage();
+                    loadQuestion();
+                };
             } else {
                 fiveSecond--;
                 $('.time-left').text(fiveSecond);
@@ -269,15 +277,23 @@ $(document).ready(function () {
 
     function loadIncorrectAnswer() {
         // timer
+        if (typeof thirtySecondInterval !== 'undefined') {
+            clearInterval(thirtySecondInterval);
+        };
         fiveSecond = 5;
         $('.time-left').text(fiveSecond);
         function fiveSCountdown() {
             if (fiveSecond == 0) {
                 clearInterval(fiveSecondInterval);
-                progress++;
-                $('.prog').text(progress);
-                showQuestionPage();
-                loadQuestion();
+                if (progress == 12) {
+                    showGameOver();
+                    loadGameOver();
+                } else {
+                    progress++;
+                    $('.prog').text(progress);
+                    showQuestionPage();
+                    loadQuestion();
+                };
             } else {
                 fiveSecond--;
                 $('.time-left').text(fiveSecond);
@@ -293,15 +309,23 @@ $(document).ready(function () {
     };
 
     function loadTimeUp() {
+        if (typeof thirtySecondInterval !== 'undefined') {
+            clearInterval(thirtySecondInterval);
+        };
         fiveSecond = 5;
         $('.time-left').text(fiveSecond);
         function fiveSCountdown() {
             if (fiveSecond == 0) {
                 clearInterval(fiveSecondInterval);
-                progress++;
-                $('.prog').text(progress);
-                showQuestionPage();
-                loadQuestion();
+                if (progress == 12) {
+                    showGameOver();
+                    loadGameOver();
+                } else {
+                    progress++;
+                    $('.prog').text(progress);
+                    showQuestionPage();
+                    loadQuestion();
+                };
             } else {
                 fiveSecond--;
                 $('.time-left').text(fiveSecond);
@@ -317,7 +341,12 @@ $(document).ready(function () {
     };
 
     function loadGameOver() {
-        clearInterval(fiveSecondInterval);
+        if (typeof thirtySecondInterval !== 'undefined') {
+            clearInterval(thirtySecondInterval);
+        };
+        if (typeof fiveSecondInterval !== 'undefined') {
+            clearInterval(fiveSecondInterval);
+        };
         $('#correct').text(correct);
         $('#incorrect').text(incorrect);
         $('#unanswered').text(unanswered);
