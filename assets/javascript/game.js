@@ -247,6 +247,8 @@ $(document).ready(function () {
     };
 
     function loadCorrectAnswer() {
+        correct++
+
         // timer
         if (typeof thirtySecondInterval !== 'undefined') {
             clearInterval(thirtySecondInterval);
@@ -281,6 +283,8 @@ $(document).ready(function () {
 
 
     function loadIncorrectAnswer() {
+        incorrect++;
+
         // timer
         if (typeof thirtySecondInterval !== 'undefined') {
             clearInterval(thirtySecondInterval);
@@ -372,10 +376,10 @@ $(document).ready(function () {
         } else {
             if (!check(selection)) {
                 showAnswerPage();
-                loadIncorrectAnswer(2);
+                loadIncorrectAnswer();
             } else {
                 showAnswerPage();
-                loadCorrectAnswer(1);
+                loadCorrectAnswer();
             };
         };
     });
