@@ -1,6 +1,5 @@
 ## Trivia Game
-_Only a true Harry Potter afficianado would be able to answer all these questions! Ready for a challenge?  
-Click [here](https://pathak-neha.github.io/TriviaGame/ "Challenge Accepted!") to accept._
+_Only a true Harry Potter afficianado would be able to answer all these questions! Ready for a challenge? [Click here to accept my challenge](https://pathak-neha.github.io/TriviaGame/ "Challenge Accepted!")._
 
 **_The Technical Details_**  
 This is a simple timer-based quiz created from scratch - yup, custom CSS. The game logic relies on JavaScript, with jQuery to manipulate the DOM. Here's my [pseudocode](https://github.com/pathak-neha/TriviaGame/blob/master/pseudocode.txt "View Pseudocode"), if you're interested in the thought process that goes into creating a quiz like this.
