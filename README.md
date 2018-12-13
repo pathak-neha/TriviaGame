@@ -7,7 +7,7 @@ This is a simple timer-based quiz created from scratch - yup, custom CSS. The ga
 
 If you're looking for most of the DOM content, look in the [JavaScript file](https://github.com/pathak-neha/TriviaGame/blob/master/assets/javascript/game.js "Go to JS"). The [HTML file](https://github.com/pathak-neha/TriviaGame/blob/master/index.html "Go to HTML") only contains the several empty sections of the game, most of them hidden until the user interacts with the game.
 
-**_The Design Process_**
+**_The Design Process_**  
 This was one of my earliest works in Front End Design, just around a month after I learned how to put together a webpage! So I'm very proud of how it turned out.
 
 I wanted to try and build a website that would look just as good on mobile browsers, and I knew that one of the biggest challenges was creating a pretty and scalable background. I relied _heavily_ on my Graphic Design experience to come up with [this PNG](https://github.com/pathak-neha/TriviaGame/blob/master/assets/images/castle-2.png "Final Background") image for the background. [Here's a graveyard](https://github.com/pathak-neha/TriviaGame/tree/master/assets/images "Alt Images") of all the images I tried before finalizing my background image.
