@@ -17,8 +17,8 @@ $(document).ready(function () {
                 4: 'Victor Krum',
             },
             'answer': 3,
-            'blurb': '<h3><strong>Neville Longbottom</strong> used the sword of Gryffindor to kill Nagini.</h3>',
-            'imageSrc': '<img class="ans-img" src="./assets/images/one.gif" alt="Answer one image" />'
+            'blurb': '<strong>Neville Longbottom</strong> used the sword of Gryffindor to kill Nagini.',
+            'imageSrc': './assets/images/one.gif'
         },
 
         {
@@ -31,7 +31,7 @@ $(document).ready(function () {
             },
             'answer': 2,
             'blurb': "The name of Dumbledore's pet phoenix was <strong>Fawkes</strong>.",
-            'imageSrc': '<img class="ans-img" src="./assets/images/two.gif" alt="Answer two image" />'
+            'imageSrc': './assets/images/two.gif'
         },
 
         {
@@ -44,7 +44,7 @@ $(document).ready(function () {
             },
             'answer': 1,
             'blurb': "<strong>Michael Corner</strong> was Ginny's first boyfriend.",
-            'imageSrc': '<img class="ans-img" src="./assets/images/three.gif" alt="Answer three image" />'
+            'imageSrc': './assets/images/three.gif'
         },
 
         {
@@ -57,7 +57,7 @@ $(document).ready(function () {
             },
             'answer': 4,
             'blurb': "Charlie trained <strong>dragons</strong> in Romania",
-            'imageSrc': '<img class="ans-img" src="./assets/images/four.gif" alt="Answer four image" />'
+            'imageSrc': './assets/images/four.gif'
         },
 
         {
@@ -69,8 +69,8 @@ $(document).ready(function () {
                 4: 'Head of the Department of International Magical Cooperation',
             },
             'answer': 4,
-            'blurb': "Dumbledore never worked for the <strong>Ministry</strong>",
-            'imageSrc': '<img class="ans-img" src="./assets/images/five.gif" alt="Answer five image" />'
+            'blurb': "Despite being someone revered by the wizarding society, Dumbledore has <strong>never held a position at the Ministry</strong>",
+            'imageSrc': './assets/images/five.gif'
         },
 
         {
@@ -83,7 +83,7 @@ $(document).ready(function () {
             },
             'answer': 2,
             'blurb': "You should know this by now.",
-            'imageSrc': '<img class="ans-img" src="./assets/images/six.gif" alt="Answer six image" />'
+            'imageSrc': './assets/images/six.gif'
         },
 
         {
@@ -96,7 +96,7 @@ $(document).ready(function () {
             },
             'answer': 2,
             'blurb': "Ron was born on <strong>1st March</strong>, making him a Pisces!",
-            'imageSrc': '<img class="ans-img" src="./assets/images/seven.gif" alt="Answer seven image" />'
+            'imageSrc': './assets/images/seven.gif'
         },
 
         {
@@ -109,7 +109,7 @@ $(document).ready(function () {
             },
             'answer': 3,
             'blurb': "Viktor Krum caught the snitch for <strong>150 pts</strong> but Bulgaria still lost the World Cup!",
-            'imageSrc': '<img class="ans-img" src="./assets/images/eight.gif" alt="Answer eight image" />'
+            'imageSrc': './assets/images/eight.gif'
         },
 
         {
@@ -122,7 +122,7 @@ $(document).ready(function () {
             },
             'answer': 1,
             'blurb': "Ron came up with the idea to use a <strong>Basilisk Fang</strong>, inspiring this famous kiss.",
-            'imageSrc': '<img class="ans-img" src="./assets/images/nine.gif" alt="Answer nine image" />'
+            'imageSrc': './assets/images/nine.gif'
         },
 
         {
@@ -135,7 +135,7 @@ $(document).ready(function () {
             },
             'answer': 2,
             'blurb': "Ron lost <strong>half of his eyebrow</strong>.",
-            'imageSrc': '<img class="ans-img" src="./assets/images/ten.gif" alt="Answer ten image" />'
+            'imageSrc': './assets/images/ten.gif'
         },
 
         {
@@ -148,7 +148,7 @@ $(document).ready(function () {
             },
             'answer': 2,
             'blurb': "The envelopes were, hem hem, <strong>pale violet<strong>.",
-            'imageSrc': '<img class="ans-img" src="./assets/images/eleven.gif" alt="Answer eleven image" />'
+            'imageSrc': './assets/images/eleven.gif'
         },
 
         {
@@ -160,8 +160,8 @@ $(document).ready(function () {
                 4: 'The Leaky Cauldron',
             },
             'answer': 4,
-            'blurb': "Harry chose to be dropped off at <strong>the Leaky Cauldron<strong>, since he thought he was not welcome at Hogwarts anymore",
-            'imageSrc': '<img class="ans-img" src="./assets/images/twelve.gif" alt="Answer twelve image" />'
+            'blurb': "Harry chose to be dropped off at <strong>the Leaky Cauldron</strong>, since he thought he was not welcome at Hogwarts anymore",
+            'imageSrc': './assets/images/twelve.gif'
         },
     ];
 
@@ -195,6 +195,12 @@ $(document).ready(function () {
         $('#quiz-answer').hide();
         $('#quiz').show();
         $('#quiz-question').show();
+
+        // clear selection
+        $('#option-1').attr('checked',false)
+        $('#option-2').attr('checked',false)
+        $('#option-3').attr('checked',false)
+        $('#option-4').attr('checked',false)
     };
 
     function showAnswerPage() {
@@ -268,10 +274,9 @@ $(document).ready(function () {
         $('.timer-text').text('Next question in... ');
 
         // answer info
-        $('#answer-header').html('Your selection was... <strong>correct</strong>!');
+        $('#answer-header').html('Your selection was <strong>correct</strong>!');
         $('#answer-blurb').html(questionsGroup[progress - 1]['blurb']);
-        $('#answer-image').html(questionsGroup[progress - 1]['imageSrc']);
-
+        $('#answer-image').attr('src',questionsGroup[progress - 1]['imageSrc']);
     };
 
 
@@ -303,9 +308,9 @@ $(document).ready(function () {
         $('.timer-text').text('Next question in... ');
 
         // answer info
-        $('#answer-header').html('Your selection was... <strong>incorrect</strong>!');
+        $('#answer-header').html('Your selection was <strong>incorrect</strong>!');
         $('#answer-blurb').html(questionsGroup[progress - 1]['blurb']);
-        $('#answer-image').html(questionsGroup[progress - 1]['imageSrc']);
+        $('#answer-image').attr('src',questionsGroup[progress - 1]['imageSrc']);
     };
 
     function loadTimeUp() {

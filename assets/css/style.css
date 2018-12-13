@@ -22,7 +22,7 @@ h1 {
     }
     h1 .hp {
       display: block;
-      font-family: 'Allura', cursive;
+      font-family: 'Dancing Script', cursive;
       color: #cccc99;
       font-size: 5rem;
       position: relative;
@@ -104,8 +104,8 @@ section {
     padding-left: 2rem;
 }
 
-.ans-img {
-    max-width: 400px;
+#answer-image {
+    max-width: 50%;
 }
 
 .clearfix:after {
